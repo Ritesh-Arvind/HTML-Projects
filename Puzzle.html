@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Puzzle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        #puzzle {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            grid-gap: 10px;
+        }
+        .tile {
+            width: 60px;
+            height: 60px;
+            background-color: #007BFF;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="puzzle">
+        <div class="tile">1</div>
+        <div class="tile">2</div>
+        <div class="tile">3</div>
+        <div class="tile">4</div>
+        <div class="tile">5</div>
+        <div class="tile">6</div>
+        <div class="tile">7</div>
+        <div class="tile">8</div>
+        <div class="tile">9</div>
+        <div class="tile">10</div>
+        <div class="tile">11</div>
+        <div class="tile">12</div>
+        <div class="tile">13</div>
+        <div class="tile">14</div>
+        <div class="tile">15</div>
+        <div class="tile"></div>
+    </div>
+    <script>
+        const tiles = document.querySelectorAll('.tile');
+        tiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                const emptyTile = document.querySelector('.tile:not(:has(*))');
+                const tileNumber = tile.textContent;
+                if (emptyTile) {
+                    emptyTile.textContent = tileNumber;
+                    tile.textContent = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
